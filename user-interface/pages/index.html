@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume AI Home</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Resume AI</h2>
+      <a href="index.html" class="active">Home</a>
+      <a href="resumes.html">Resumes</a>
+      <a href="ATS.html">ATS Score</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </div>
+
+    <div class="main">
+      <div class="navbar">
+        <div class="logo">Resume Scanner</div>
+
+        <div class="auth-buttons">
+          <button onclick="location.href='login.html'" class="auth-btn">
+            Login
+          </button>
+          <button onclick="location.href='signup.html'" class="auth-btn">
+            Signup
+          </button>
+        </div>
+
+        <div class="search-bar">
+          <input
+            type="text"
+            placeholder="Search resumes, jobs, or keywords..."
+          />
+        </div>
+
+        <div class="profile-icon">
+          <img
+            src="../a placeholder profil.jpeg"
+            alt="Profile"
+            class="profile-pic-navbar"
+            onclick="location.href='profile.html'"
+          />
+        </div>
+      </div>
+
+      <div class="dashboard">
+        <div class="card">
+          <h3>Welcome to Resume AI</h3>
+          <p>
+            Your smart assistant for building, optimizing, and tracking resumes
+            that stand out to recruiters and ATS systems.
+          </p>
+          <button class="upload-btn" onclick="location.href='resumes.html'">
+            Get Started →
+          </button>
+        </div>
+
+        <div class="card">
+          <h3>Why Resume AI?</h3>
+          <ul>
+            <li>Upload and scan resumes for ATS compatibility</li>
+            <li>Match keywords from job descriptions</li>
+            <li>Track your resume improvement over time</li>
+            <li>Get AI-powered feedback and layout tips</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>How It Works</h3>
+          <p>
+            Resume AI analyzes your resume using advanced algorithms to assess
+            formatting, keyword relevance, and technical depth. It then provides
+            actionable feedback and scoring to help you improve.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Latest Updates</h3>
+          <ul>
+            <li>New voice assistant feature for resume tips</li>
+            <li>Improved ATS scoring algorithm</li>
+            <li>Enhanced UI for resume feedback</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Feedback</h3>
+          <p>
+            View feedback on your resume and get suggestions for improvement.
+          </p>
+          <button class="upload-btn" onclick="location.href='feedback.html'">
+            Explore Feedback →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../Scripts/script.js"></script>
+  </body>
+</html>

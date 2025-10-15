@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Profile | AI Resume Screener</title>
+  <link rel="stylesheet" href="../styles/navbar.css" />
+  <link rel="stylesheet" href="../styles/sidebar.css" />
+  <link rel="stylesheet" href="../styles/profile.css?v=2" />
+</head>
+
+<body>
+  <div id="sidebar-container"></div>
+
+  <main class="main">
+    <div id="navbar-container"></div>
+
+    <section class="profile-section">
+      <h2>👤 My Profile</h2>
+
+      <div class="profile-card">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/219/219969.png"
+          alt="Profile Photo"
+          class="profile-photo"
+        />
+
+        <div class="profile-info">
+          <label>Name</label>
+          <input type="text" id="hrName" value="" />
+
+          <label>Email</label>
+          <input type="email" id="hrEmail" value="" />
+
+          <label>Department</label>
+          <input type="text" id="hrDept" value="" />
+
+          <label>Password</label>
+          <input type="password" id="hrPass" placeholder="" />
+
+          <button id="saveProfile">Save Changes</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../scripts/profile.js"></script>
+
+  <script>
+    // Load shared components
+    fetch("../components/navbar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("navbar-container").innerHTML = html);
+
+    fetch("../components/sidebar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("sidebar-container").innerHTML = html);
+  </script>
+</body>
+</html>

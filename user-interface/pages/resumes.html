@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resumes</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>Resume AI</h2>
+      <a href="index.html">Home</a>
+      <a href="resumes.html" class="active">Resumes</a>
+      <a href="ats.html">ATS Score</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="main">
+      <!-- Navbar -->
+      <div class="navbar">
+        <div class="logo">Resume Scanner</div>
+        <div class="search-bar">
+          <input
+            type="text"
+            placeholder="Search resumes, jobs, or keywords..."
+          />
+        </div>
+      </div>
+
+      <!-- Resume Management -->
+      <div class="dashboard">
+        <div class="card">
+          <h3>Upload New Resume</h3>
+          <p>Select a file to upload and scan for ATS compatibility.</p>
+          <input type="file" id="resumeUpload" />
+          <button class="upload-btn" onclick="uploadResume()">
+            Upload & Scan
+          </button>
+        </div>
+
+        <div class="card">
+          <h3>Upload a Job Description</h3>
+          <p>Upload a job description to compare against your resumes.</p>
+          <input type="file" id="jobDescUpload" />
+          <button class="upload-btn" onclick="uploadJobDescription()">
+            Upload Job Description
+          </button>
+        </div>
+
+        <div class="card">
+          <h3>Enter Job Description</h3>
+          <p>paste the job description text below:</p>
+
+          <textarea
+            id="jobDescText"
+            rows="5"
+            cols="50"
+            placeholder="Paste job description here..."
+          ></textarea>
+
+          <button class="upload-btn" onclick="submitJobDescription()">
+            Submit Job Description
+          </button>
+        </div>
+
+        <div class="card">
+          <h3>Saved Resumes</h3>
+          <ul class="resume-list">
+            <li>
+              <strong>ML_Engineer_Pavan.pdf</strong>
+              <span class="score-tag">78%</span>
+              <button class="view-btn">View</button>
+              <button class="delete-btn">Delete</button>
+            </li>
+            <li>
+              <strong>Resume_v2.pdf</strong>
+              <span class="score-tag">65%</span>
+              <button class="view-btn">View</button>
+              <button class="delete-btn">Delete</button>
+            </li>
+            <li>
+              <strong>Resume_v1.pdf</strong>
+              <span class="score-tag">52%</span>
+              <button class="view-btn">View</button>
+              <button class="delete-btn">Delete</button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Tips for Resume Management</h3>
+          <ul>
+            <li>Keep filenames clear and versioned (e.g., Resume_v3.pdf)</li>
+            <li>Update resumes regularly with new skills and projects</li>
+            <li>Use the ATS score to guide improvements</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="../Scripts/resumes.js"></script>
+  </body>
+</html>

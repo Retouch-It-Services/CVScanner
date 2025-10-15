@@ -1,0 +1,23 @@
+{
+  "frontend": [
+    { "month": "2025-01", "processed": 60, "matchHigh": 50, "matchMedium": 30, "matchLow": 20 },
+    { "month": "2025-02", "processed": 80, "matchHigh": 55, "matchMedium": 25, "matchLow": 20 },
+    { "month": "2025-03", "processed": 90, "matchHigh": 58, "matchMedium": 27, "matchLow": 15 },
+    { "month": "2025-04", "processed": 120, "matchHigh": 62, "matchMedium": 25, "matchLow": 13 },
+    { "month": "2025-05", "processed": 130, "matchHigh": 60, "matchMedium": 28, "matchLow": 12 }
+  ],
+  "backend": [
+    { "month": "2025-01", "processed": 55, "matchHigh": 40, "matchMedium": 35, "matchLow": 25 },
+    { "month": "2025-02", "processed": 70, "matchHigh": 50, "matchMedium": 30, "matchLow": 20 },
+    { "month": "2025-03", "processed": 85, "matchHigh": 45, "matchMedium": 35, "matchLow": 20 },
+    { "month": "2025-04", "processed": 95, "matchHigh": 50, "matchMedium": 30, "matchLow": 20 },
+    { "month": "2025-05", "processed": 100, "matchHigh": 52, "matchMedium": 28, "matchLow": 20 }
+  ],
+  "data": [
+    { "month": "2025-01", "processed": 45, "matchHigh": 60, "matchMedium": 25, "matchLow": 15 },
+    { "month": "2025-02", "processed": 70, "matchHigh": 65, "matchMedium": 20, "matchLow": 15 },
+    { "month": "2025-03", "processed": 80, "matchHigh": 62, "matchMedium": 23, "matchLow": 15 },
+    { "month": "2025-04", "processed": 95, "matchHigh": 68, "matchMedium": 20, "matchLow": 12 },
+    { "month": "2025-05", "processed": 105, "matchHigh": 70, "matchMedium": 18, "matchLow": 12 }
+  ]
+}

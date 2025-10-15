@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Feedback</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Resume AI</h2>
+      <a href="index.html">Home</a>
+      <a href="resumes.html">Resumes</a>
+      <a href="ats.html">ATS Score</a>
+      <a href="feedback.html" class="active">Feedback</a>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </div>
+
+    <div class="main">
+      <div class="navbar">
+        <div class="logo">Resume Scanner</div>
+        <div class="search-bar">
+          <input
+            type="text"
+            placeholder="Search resumes, jobs, or keywords..."
+          />
+        </div>
+      </div>
+
+      <div class="dashboard">
+        <div class="card">
+          <h3>AI Feedback</h3>
+          <p>
+            “Your resume is strong in technical depth. Consider improving layout
+            clarity and adding a summary section.”
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Suggestions</h3>
+          <ul>
+            <li>Use a clean, modern font like Roboto or Open Sans</li>
+            <li>Add a professional summary at the top</li>
+            <li>Group skills into categories: Languages, Frameworks, Tools</li>
+            <li>Use consistent bullet formatting and spacing</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Next Steps</h3>
+          <p>
+            Try uploading a revised version to see how your ATS score and
+            keyword match improve.
+          </p>
+          <button class="upload-btn" onclick="location.href='resumes.html'">
+            Upload Revised Resume
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../Scripts/script.js"></script>
+  </body>
+</html>

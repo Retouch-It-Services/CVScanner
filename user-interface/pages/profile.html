@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile Resume AI</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Resume AI</h2>
+      <a href="index.html">Home</a>
+      <a href="resumes.html">Resumes</a>
+      <a href="ATS.html">ATS Score</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="profile.html" class="active">Profile</a>
+      <a href="settings.html">Settings</a>
+    </div>
+
+    <div class="main">
+      <div class="navbar">
+        <div class="logo">Resume Scanner</div>
+        <div class="search-bar">
+          <input
+            type="text"
+            placeholder="Search resumes, jobs, or keywords..."
+          />
+        </div>
+      </div>
+
+      <div class="dashboard">
+        <div class="card profile-card">
+          <img
+            src="../a placeholder profil.jpeg"
+            alt="Profile Picture"
+            class="profile-pic"
+          />
+          <div class="profile-info">
+            <h3>John Doe</h3>
+            <p><strong>Email:</strong> john.doe@example.com</p>
+            <p><strong>Location:</strong> San Francisco, CA</p>
+            <p><strong>Profession:</strong> Software Engineer</p>
+            <button
+              class="edit-btn"
+              onclick="location.href='edit-profile.html'"
+            >
+              Edit Profile
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Score Trends</h3>
+          <canvas id="scoreChart" width="400" height="200"></canvas>
+        </div>
+
+        <div class="card">
+          <h3>Uploaded Resumes</h3>
+          <table class="resume-table">
+            <thead>
+              <tr>
+                <th>Filename</th>
+                <th>Date Uploaded</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>resume_john_2025.pdf</td>
+                <td>Oct 10, 2025</td>
+                <td>
+                  <a href="../resumes/resume_john_2025.pdf" download
+                    >Download</a
+                  >
+                  |
+                  <a href="view-resume.html?file=resume_john_2025.pdf">View</a>
+                </td>
+              </tr>
+              <tr>
+                <td>resume_john_dev.pdf</td>
+                <td>Sep 28, 2025</td>
+                <td>
+                  <a href="../resumes/resume_john_dev.pdf" download>Download</a>
+                  |
+                  <a href="view-resume.html?file=resume_john_dev.pdf">View</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="../Scripts/profile.js"></script>
+  </body>
+</html>

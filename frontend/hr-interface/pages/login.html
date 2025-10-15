@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Login | AI Resume Screener</title>
+  <link rel="stylesheet" href="../styles/login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h1>👔 HR Login</h1>
+    <input type="text" id="hr-username" placeholder="Enter username" />
+    <input type="password" id="hr-password" placeholder="Enter password" />
+    <button onclick="hrLogin()">Login</button>
+
+    <p>Don’t have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+
+    <div id="signup-section" style="display:none;">
+      <h3>Create HR Account</h3>
+      <input type="text" id="new-hr-username" placeholder="New username" />
+      <input type="password" id="new-hr-password" placeholder="New password" />
+      <button onclick="hrSignup()">Sign Up</button>
+    </div>
+  </div>
+
+  <script src="../scripts/login.js"></script>
+</body>
+</html>

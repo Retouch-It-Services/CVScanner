@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATS Score</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Resume AI</h2>
+      <a href="index.html">Home</a>
+      <a href="resumes.html">Resumes</a>
+      <a href="ats.html" class="active">ATS Score</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </div>
+
+    <div class="main">
+      <div class="navbar">
+        <div class="logo">Resume Scanner</div>
+        <div class="search-bar">
+          <input
+            type="text"
+            placeholder="Search resumes, jobs, or keywords..."
+          />
+        </div>
+      </div>
+
+      <div class="dashboard">
+        <div class="card">
+          <h3>Latest ATS Score</h3>
+          <p>Your most recent resume scan scored:</p>
+          <div class="ats-score">78 / 100</div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 78%"></div>
+          </div>
+          <p>
+            Tip: Add keywords like “FastAPI”, “Model Calibration”, “UX Research”
+            to improve your score.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Keyword Match</h3>
+          <p>Matched keywords from job description:</p>
+          <div class="keyword-list">
+            <div class="keyword">Python</div>
+            <div class="keyword">React</div>
+            <div class="keyword">FastAPI</div>
+            <div class="keyword">Clinical ML</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Score History</h3>
+          <ul>
+            <li>ML_Engineer_Pavan.pdf — 78%</li>
+            <li>Resume_v2.pdf — 65%</li>
+            <li>Resume_v1.pdf — 52%</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Improve Your Score</h3>
+          <ul>
+            <li>Tailor your resume to specific job descriptions</li>
+            <li>Include relevant technical and soft skills</li>
+            <li>Use consistent formatting and section headers</li>
+            <li>Highlight achievements with metrics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="../Scripts/ATS.js"></script>
+  </body>
+</html>

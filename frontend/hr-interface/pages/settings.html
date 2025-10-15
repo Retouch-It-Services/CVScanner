@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings | AI Resume Screener</title>
+  <link rel="stylesheet" href="settings.css" />
+</head>
+<body>
+  <div id="sidebar"></div>
+
+  <div class="main-content">
+    <div id="navbar"></div>
+
+    <section class="settings-section">
+      <h1>Application Settings</h1>
+      <p class="subtitle">Customize your preferences and account settings.</p>
+
+      <form id="settingsForm">
+        <label>Theme:</label>
+        <select id="theme">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+
+        <label>Notification Email:</label>
+        <input type="email" id="email" placeholder="yourname@example.com" />
+
+        <button type="submit">Save Settings</button>
+      </form>
+    </section>
+  </div>
+
+  <script src="settings.js"></script>
+  <script>
+    fetch("../components/sidebar.html")
+      .then(res => res.text())
+      .then(html => (document.getElementById("sidebar").innerHTML = html));
+
+    fetch("../components/navbar.html")
+      .then(res => res.text())
+      .then(html => (document.getElementById("navbar").innerHTML = html));
+  </script>
+</body>
+</html>

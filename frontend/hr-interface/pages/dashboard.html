@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Dashboard | AI Resume Screener</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../styles/navbar.css" />
+  <link rel="stylesheet" href="../styles/sidebar.css" />
+  <link rel="stylesheet" href="../styles/dashboard.css" />
+  <link rel="stylesheet" href="../styles/upload.css" />
+  <link rel="stylesheet" href="../styles/candidate-table.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar-container"></div>
+
+  <!-- Main content -->
+  <main class="main" id="mainContent">
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Dashboard Section -->
+    <section class="section" id="dashboard">
+      <h2>Dashboard Overview</h2>
+
+      <!-- Summary Cards -->
+      <div class="cards">
+        <div class="card">
+          <h3>Total Resumes</h3>
+          <p id="totalResumes">--</p>
+        </div>
+        <div class="card">
+          <h3>Top Matches</h3>
+          <p id="topMatches">--</p>
+        </div>
+        <div class="card">
+          <h3>Average Fit</h3>
+          <p id="avgFit">--</p>
+        </div>
+      </div>
+
+      <!-- Upload Section -->
+      <div class="upload-section-wrapper">
+        <div class="upload-container">
+          <div class="upload-box">
+            <h3>Upload Multiple Resumes</h3>
+            <input type="file" id="resumeUpload" multiple />
+          </div>
+          <div class="upload-box">
+            <h3>Upload Job Description</h3>
+            <input type="file" id="jdUpload" />
+          </div>
+        </div>
+
+        <!-- Analyse Button -->
+        <div class="analyse-button-wrapper">
+          <button id="analyseBtn">Analyse</button>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-bar-container" id="progressContainer" style="display:none;">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <p id="uploadStatus" class="status-text">Waiting for uploads...</p>
+
+      <!-- Candidates Table -->
+      <h2 style="margin-top: 40px;">Candidates</h2>
+      <div class="table-container">
+        <table class="candidate-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Match %</th>
+              <th>Experience</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="candidate-list">
+            <tr>
+              <td colspan="4" style="text-align:center; color:#9ca3af; padding:20px;">
+                Waiting for uploads...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Candidate Details Modal -->
+  <div id="candidateModal" class="modal">
+    <div class="modal-box">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../scripts/navbar.js"></script>
+  <script src="../scripts/sidebar.js"></script>
+  <script src="../scripts/dashboard.js"></script>
+
+  <!-- Load Navbar & Sidebar dynamically -->
+  <script>
+    Promise.all([
+      fetch("../components/navbar.html").then(res => res.text()),
+      fetch("../components/sidebar.html").then(res => res.text())
+    ]).then(([navbarHTML, sidebarHTML]) => {
+      document.getElementById("navbar-container").innerHTML = navbarHTML;
+      document.getElementById("sidebar-container").innerHTML = sidebarHTML;
+      initSidebarToggle();
+    });
+  </script>
+</body>
+</html>

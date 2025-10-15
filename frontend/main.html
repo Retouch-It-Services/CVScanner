@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Resume Screener — Login</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to AI Resume Screener</h1>
+    <p>Select your interface to continue</p>
+
+    <div class="buttons">
+      <button onclick="goToHR()">👔 HR Login</button>
+      <button onclick="goToUser()">🙋‍♂️ User Login</button>
+    </div>
+  </div>
+
+  <script>
+    function goToHR() {
+  window.location.href = "hr-interface/pages/login.html";
+}
+
+function goToUser() {
+  window.location.href = "user-interface/pages/login.html";
+}
+
+  </script>
+</body>
+</html>
