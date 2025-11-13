@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile - HR Dashboard</title>
+
+  <link rel="stylesheet" href="../styles/navbar.css" />
+  <link rel="stylesheet" href="../styles/sidebar.css" />
+  <link rel="stylesheet" href="../styles/profile.css" />
+</head>
+
+<body>
+  <!-- Navbar & Sidebar -->
+  <div id="navbar-container"></div>
+  <div id="sidebar-container"></div>
+
+  <main class="main" id="mainContent">
+    <div class="profile-container">
+      <div class="profile-card">
+        <div class="profile-image">
+          <img id="profilePic" src="../images/default-profile.png" alt="Profile Picture">
+
+          <!-- ✅ Default "Choose File" style -->
+          <div class="file-upload-wrapper">
+            <input type="file" id="imageUpload" accept="image/*">
+          </div>
+        </div>
+
+        <div class="profile-info">
+          <label for="name">Name:</label>
+          <input type="text" id="name" placeholder="Enter your name">
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="Enter your email" readonly>
+
+          <label for="phone">Phone:</label>
+          <input type="text" id="phone" placeholder="Enter your phone number">
+
+          <div class="button-row">
+            <button id="saveBtn">Save Profile</button>
+            <button id="backToDashboard" class="back-btn">← Back to Dashboard</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast" class="toast">Profile updated successfully!</div>
+
+  <!-- Scripts -->
+  <script src="../scripts/navbar.js"></script>
+  <script src="../scripts/sidebar.js"></script>
+  <script src="../scripts/profile.js"></script>
+
+  <!-- Load Navbar & Sidebar -->
+  <script>
+    Promise.all([
+      fetch("../components/navbar.html").then(res => res.text()),
+      fetch("../components/sidebar.html").then(res => res.text())
+    ]).then(([navbarHTML, sidebarHTML]) => {
+      document.getElementById("navbar-container").innerHTML = navbarHTML;
+      document.getElementById("sidebar-container").innerHTML = sidebarHTML;
+      if (typeof initSidebarToggle === "function") initSidebarToggle();
+      if (typeof initNavbar === "function") initNavbar();
+    });
+  </script>
+</body>
+</html>

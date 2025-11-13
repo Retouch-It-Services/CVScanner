@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Resume Screener | Login</title>
+
+  <link rel="stylesheet" href="../styles/login.css" />
+  <script src="../scripts/login.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="form-wrapper">
+      <h1 class="title">AI RESUME SCREENER</h1>
+      <h2 class="subtitle">Login to your account</h2>
+
+      <form id="loginForm" autocomplete="off">
+        <div class="input-field">
+          <input 
+            type="text" 
+            id="email" 
+            autocomplete="off" 
+            autocorrect="off" 
+            autocapitalize="none" 
+            spellcheck="false" 
+            required 
+          />
+          <label>Email or Phone</label>
+        </div>
+
+        <!-- Password field with inline SVG eye icon -->
+        <div class="input-field password-field">
+          <input 
+            type="password" 
+            id="password" 
+            autocomplete="new-password" 
+            required 
+          />
+          <label>Password</label>
+
+          <span id="togglePassword" class="eye-icon" title="Show/Hide Password">
+            <!-- Eye open -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                 viewBox="0 0 24 24" class="eye-open">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <!-- Eye closed -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                 viewBox="0 0 24 24" class="eye-slash hidden">
+              <path d="M17.94 17.94A10.93 10.93 0 0 1 12 20c-7 0-11-8-11-8a21.9 21.9 0 0 1 5.08-6.11M9.9 4.24A10.93 10.93 0 0 1 12 4c7 0 11 8 11 8a21.84 21.84 0 0 1-2.59 3.6M1 1l22 22"/>
+            </svg>
+          </span>
+        </div>
+
+        <a href="forgot_password.html" class="forgot-link">Forgot Password?</a>
+
+        <button type="submit">Login</button>
+
+        <p class="switch">
+          Don't have an account? <a href="signup.html">Sign up</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

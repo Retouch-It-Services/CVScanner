@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Resume Screener | Sign Up</title>
+  <link rel="stylesheet" href="../styles/signup.css" />
+  <script src="../scripts/signup.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="form-wrapper">
+      <h1 class="title">Create Your Account</h1>
+      <h2 class="subtitle">Join the AI Resume Screener Portal</h2>
+
+      <form id="signupForm">
+        <!-- STEP 1: name + email -->
+        <div class="input-group">
+          <div class="input-field">
+            <input type="text" id="firstName" required />
+            <label>First Name</label>
+          </div>
+          <div class="input-field">
+            <input type="text" id="lastName" required />
+            <label>Last Name</label>
+          </div>
+        </div>
+
+        <div class="input-field">
+          <input type="email" id="email" required />
+          <label>Email</label>
+        </div>
+
+        <div class="otp-section">
+          <button type="button" id="sendOtpBtn">Send OTP</button>
+
+          <div class="verify-section hidden" id="verifyRow">
+            <input type="text" id="otp" placeholder="Enter OTP" />
+            <button type="button" id="verifyOtpBtn">Verify</button>
+          </div>
+
+          <div class="verify-section hidden" id="resendRow">
+            <button type="button" id="resendOtpBtn" disabled>Resend OTP</button>
+            <span id="cooldownText"></span>
+          </div>
+
+          <div class="verify-section hidden" id="expiryRow">
+            <span id="expiresText"></span>
+          </div>
+        </div>
+
+        <!-- STEP 3 fields (unlocked only after OTP verified) -->
+        <div class="input-field hidden" id="passwordRow">
+          <input type="password" id="password" required />
+          <label>Create Password</label>
+        </div>
+
+        <div class="input-field hidden" id="confirmPasswordRow">
+          <input type="password" id="confirmPassword" required />
+          <label>Confirm Password</label>
+        </div>
+
+        <div class="input-field hidden" id="orgRow">
+          <input type="text" id="organization" required />
+          <label>Organization</label>
+        </div>
+
+        <button type="submit" id="finalSubmit" class="hidden">Sign Up</button>
+
+        <p class="switch">
+          Already have an account? <a href="login.html">Login</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

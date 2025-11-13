@@ -1,0 +1,176 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(132, 132, 224, 0.95);
+  backdrop-filter: blur(10px);
+  color: #111827;
+  padding: 10px 20px;
+  border-radius: 12px; /* removed curve to align perfectly */
+  position: fixed; /* ensure it spans across top */
+  top: 0px;
+  left: 0px; /* align to left edge */
+  right: 0px;
+  width: calc(100% - 0px);
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: margin-left 0.3s, width 0.3s;
+}
+
+/* When sidebar is opened */
+.navbar.shifted {
+  margin-left: 230px; /* same as sidebar width */
+  width: calc(100% - 230px); /* shrink width so it aligns perfectly */
+  transition: margin-left 0.3s, width 0.3s;
+}
+
+/* LEFT SIDE (Logo + Menu) */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  font-weight: 700;
+  color: #f4f7fc;
+}
+
+.menu-icon {
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #f7f9fe;
+}
+
+/* CENTER (Search Bar) */
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  width: 250px;
+  padding: 8px 12px;
+  border-radius: 25px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.search-bar:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+}
+
+.search-btn {
+  position: absolute;
+  right: 5px;
+  background: #f3f4f7;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.search-btn:hover {
+  transform: scale(1.1);
+}
+
+/* RIGHT SIDE (Profile + Icons) */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bell-icon {
+  width: 33px;
+  height: 33px;
+  fill: #f3f8f7;
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.profile-name {
+  font-size: 18px;   
+  font-weight: 500;
+  color: #060708;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #99b1e2;
+  cursor: pointer;
+}
+
+.profile-pic:hover {
+  box-shadow: 0 0 8px #2563eb;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: rgb(237, 240, 241);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  z-index: 999;
+  min-width: 180px;
+}
+
+.dropdown-menu a {
+  padding: 10px 14px;
+  text-decoration: none;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.dropdown-menu a:hover {
+  background: #2563eb;
+  color: white;
+}
+
+.dropdown-icon {
+  font-size: 1.1rem;
+}
+
+/* Show dropdown on click */
+.profile-dropdown.active .dropdown-menu {
+  display: flex;
+}
+
