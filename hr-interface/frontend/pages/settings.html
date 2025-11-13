@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings | AI Resume Screener</title>
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      padding: 40px 50px;
+      position: relative;
+      animation: fadeSlideIn 0.8s ease-out;
+    }
+
+    /* ------------------------------
+       FADE + SLIDE ANIMATION
+    ------------------------------ */
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ------------------------------
+       HEADER WITH BACK BUTTON
+    ------------------------------ */
+    .settings-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeInButtons 1s ease-out 0.3s forwards;
+    }
+
+    @keyframes fadeInButtons {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .settings-header h1 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin: 0;
+    }
+
+    /* ------------------------------
+       UNIVERSAL BUTTON STYLE
+    ------------------------------ */
+    .styled-btn {
+      background: linear-gradient(135deg, #007bff, #0056d6);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 22px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+      position: relative;
+      opacity: 0;
+      animation: fadeInButtons 1s ease-out 0.5s forwards;
+    }
+
+    .styled-btn:hover {
+      background: linear-gradient(135deg, #0069d9, #004bb5);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+    }
+
+    /* Tooltip for Back Button */
+    #backToDashboard::after {
+      content: "Go back to dashboard";
+      position: absolute;
+      bottom: -30px;
+      right: 0;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      border-radius: 5px;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+
+    #backToDashboard:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ------------------------------
+       SETTINGS SECTIONS
+    ------------------------------ */
+    p.subtitle {
+      color: #6c757d;
+      margin-bottom: 25px;
+      font-size: 1rem;
+    }
+
+    .settings-section {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      padding: 25px;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease;
+      opacity: 0;
+      animation: fadeSlideIn 0.8s ease-out forwards;
+    }
+
+    .settings-section:hover {
+      transform: translateY(-2px);
+    }
+
+    .settings-section h2 {
+      color: #333;
+      border-left: 4px solid #007bff;
+      padding-left: 10px;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 18px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.2s ease-in-out, box-shadow 0.2s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    /* ------------------------------
+       BUTTON CONTAINER (BOTTOM)
+    ------------------------------ */
+    .btn-container {
+      margin-top: 25px;
+      display: flex;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeInButtons 1s ease-out 0.8s forwards;
+    }
+
+    .reset-btn {
+      background: linear-gradient(135deg, #ff4d4f, #c0392b);
+      box-shadow: 0 4px 10px rgba(255, 77, 79, 0.3);
+    }
+
+    .reset-btn:hover {
+      background: linear-gradient(135deg, #e03131, #a02720);
+      box-shadow: 0 6px 15px rgba(255, 77, 79, 0.5);
+    }
+
+    /* ------------------------------
+       TOAST NOTIFICATION STYLES
+    ------------------------------ */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #1e293b;
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUpFade 0.5s forwards;
+      z-index: 9999;
+    }
+
+    @keyframes slideUpFade {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeOutToast {
+      to {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    .toast.success {
+      background: linear-gradient(135deg, #28a745, #1e7e34);
+      box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+    }
+
+    .toast.error {
+      background: linear-gradient(135deg, #ff4d4f, #c0392b);
+      box-shadow: 0 4px 12px rgba(255, 77, 79, 0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main {
+        padding: 25px;
+      }
+
+      .settings-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+      }
+
+      #backToDashboard {
+        align-self: flex-end;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <!-- Header -->
+    <div class="settings-header">
+      <h1>Settings</h1>
+      <button id="backToDashboard" class="styled-btn">Back to Dashboard</button>
+    </div>
+
+    <p class="subtitle">
+      Manage your organization's preferences, automation controls, and AI configurations.
+    </p>
+
+    <form id="settingsForm">
+      <!-- Company Info -->
+      <div class="settings-section">
+        <h2>Company Information</h2>
+        <div class="form-group">
+          <label for="companyName">Company Name</label>
+          <input type="text" id="companyName" placeholder="Enter company name" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="hrName">HR Manager Name</label>
+            <input type="text" id="hrName" placeholder="Enter HR name" />
+          </div>
+          <div class="form-group">
+            <label for="email">HR Email</label>
+            <input type="email" id="email" placeholder="Enter HR email address" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="companyDescription">Company Description</label>
+          <textarea id="companyDescription" rows="3" placeholder="Brief description of the company"></textarea>
+        </div>
+      </div>
+
+      <!-- Recruitment Preferences -->
+      <div class="settings-section">
+        <h2>Recruitment Preferences</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="aiThreshold">AI Match Threshold (%)</label>
+            <input type="number" id="aiThreshold" min="50" max="100" value="75" />
+          </div>
+          <div class="form-group">
+            <label for="experienceRange">Preferred Experience Range (Years)</label>
+            <select id="experienceRange">
+              <option value="0-2">0–2 Years</option>
+              <option value="2-5">2–5 Years</option>
+              <option value="5-10">5–10 Years</option>
+              <option value="10+">10+ Years</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="autoShortlist">Auto-Shortlist Candidates Above Threshold</label>
+          <select id="autoShortlist">
+            <option value="enabled">Enabled</option>
+            <option value="disabled">Disabled</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="btn-container">
+        <button type="submit" class="styled-btn"> Save Settings</button>
+        <button type="button" class="styled-btn reset-btn" id="resetSettings">Reset</button>
+      </div>
+    </form>
+  </main>
+
+  <!-- Toast Container -->
+  <div id="toastContainer"></div>
+
+  <script>
+    function showToast(message, type = "success") {
+      const toast = document.createElement("div");
+      toast.className = `toast ${type}`;
+      toast.textContent = message;
+      document.body.appendChild(toast);
+
+      // Auto remove after 3 seconds
+      setTimeout(() => {
+        toast.style.animation = "fadeOutToast 0.6s forwards";
+        setTimeout(() => toast.remove(), 600);
+      }, 3000);
+    }
+
+    // Load settings
+    function loadSettings() {
+      const saved = JSON.parse(localStorage.getItem("hrSettings"));
+      if (saved) {
+        for (const key in saved) {
+          if (document.getElementById(key)) {
+            document.getElementById(key).value = saved[key];
+          }
+        }
+      }
+    }
+
+    // Save settings
+    document.getElementById("settingsForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const settings = {};
+      document.querySelectorAll("#settingsForm input, #settingsForm select, #settingsForm textarea").forEach(el => {
+        settings[el.id] = el.value;
+      });
+      localStorage.setItem("hrSettings", JSON.stringify(settings));
+      showToast("✅ Settings saved successfully!", "success");
+    });
+
+    // Reset
+    document.getElementById("resetSettings").addEventListener("click", () => {
+      if (confirm("Are you sure you want to reset all settings?")) {
+        localStorage.removeItem("hrSettings");
+        loadSettings();
+        showToast("⚠️ Settings reset to default.", "error");
+      }
+    });
+
+    // Back to Dashboard
+    document.getElementById("backToDashboard").addEventListener("click", () => {
+      window.location.href = "dashboard.html";
+    });
+
+    loadSettings();
+  </script>
+</body>
+</html>

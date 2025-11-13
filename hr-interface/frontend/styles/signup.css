@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;      /* ✅ Center vertically */
+  justify-content: center;  /* ✅ Center horizontally */
+  background: radial-gradient(circle at 20% 20%, #0d1b2a, #000814);
+  overflow-y: auto;         /* ✅ Enables scroll when needed */
+  overflow-x: hidden;
+  position: relative;
+  color: #fff;
+  padding: 60px 0;          /* ✅ Keeps breathing space when scrolling */
+}
+
+
+
+/* === Glowing circuit background === */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+      90deg,
+      rgba(0, 183, 255, 0.08) 0px,
+      rgba(0, 183, 255, 0.08) 1px,
+      transparent 1px,
+      transparent 80px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 183, 255, 0.08) 0px,
+      rgba(0, 183, 255, 0.08) 1px,
+      transparent 1px,
+      transparent 80px
+    );
+  animation: moveGrid 25s linear infinite;
+  z-index: 0;
+}
+
+@keyframes moveGrid {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-80px, -80px); }
+}
+
+/* === Signup Container === */
+.container {
+  width: 100%;
+  max-width: 480px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 183, 255, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 195, 255, 0.3);
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 0.8s ease forwards;
+  margin: 40px 0;           /* allows top/bottom space when scroll active */
+}
+
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  color: #00eaff;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+.input-group {
+  display: flex;
+  gap: 15px;
+}
+
+.input-field {
+  position: relative;
+  margin-top: 25px;
+  flex: 1;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 14px 10px;
+  font-size: 1rem;
+  border: 1px solid #00c3ff80;
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #aaa;
+  pointer-events: none;
+  transition: 0.2s ease;
+}
+
+.input-field input:focus,
+.input-field input:valid {
+  border-color: #00eaff;
+  box-shadow: 0 0 12px #00eaff80;
+}
+
+.input-field input:focus ~ label,
+.input-field input:valid ~ label {
+  top: -6px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: #00eaff;
+  background: #000814;
+  padding: 0 4px;
+}
+
+/* === OTP Section === */
+.otp-section {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.otp-section button {
+  background: linear-gradient(90deg, #007bff, #00eaff);
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+}
+
+.otp-section button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+}
+
+.verify-section {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.verify-section input {
+  width: 120px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #00eaff70;
+  background: transparent;
+  color: #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+/* === Buttons === */
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  margin-top: 35px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #007bff, #00eaff);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+}
+
+/* === Switch Text === */
+.switch {
+  text-align: center;
+  margin-top: 20px;
+  color: #aaa;
+}
+
+.switch a {
+  color: #00eaff;
+  text-decoration: none;
+}
+
+.switch a:hover {
+  text-decoration: underline;
+}
+

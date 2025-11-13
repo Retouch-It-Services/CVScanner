@@ -1,0 +1,340 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 20% 20%, #0d1b2a, #000814);
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+}
+
+/* === Glowing circuit animation === */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+      90deg,
+      rgba(0, 183, 255, 0.08) 0px,
+      rgba(0, 183, 255, 0.08) 1px,
+      transparent 1px,
+      transparent 80px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 183, 255, 0.08) 0px,
+      rgba(0, 183, 255, 0.08) 1px,
+      transparent 1px,
+      transparent 80px
+    );
+  animation: moveGrid 25s linear infinite;
+  z-index: 0;
+}
+@keyframes moveGrid {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-80px, -80px);
+  }
+}
+
+/* === Container === */
+.container {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 183, 255, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 195, 255, 0.3);
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 0.8s ease forwards;
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  color: #00eaff;
+}
+.subtitle {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 25px;
+  opacity: 0.8;
+}
+
+/* === Inputs === */
+.input-field {
+  position: relative;
+  margin: 20px 0;
+}
+.input-field input {
+  width: 100%;
+  padding: 14px 12px;
+  font-size: 1rem;
+  border: 1px solid #00c3ff80;
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+  transition: 0.3s ease;
+}
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #aaa;
+  pointer-events: none;
+  transition: 0.2s ease;
+}
+.input-field input:focus,
+.input-field input:valid {
+  border-color: #00eaff;
+  box-shadow: 0 0 12px #00eaff80;
+}
+.input-field input:focus ~ label,
+.input-field input:valid ~ label {
+  top: -6px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: #00eaff;
+  background: #000814;
+  padding: 0 4px;
+}
+
+/* === Buttons === */
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #007bff, #00eaff);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+}
+
+.switch {
+  text-align: center;
+  margin-top: 15px;
+  color: #aaa;
+}
+.switch a {
+  color: #00eaff;
+  text-decoration: none;
+}
+.switch a:hover {
+  text-decoration: underline;
+}
+
+/* === Eye Icon (Fixed + Glow) === */
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 45px; /* space for eye icon */
+  z-index: 1;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: #00c3ffcc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  background: transparent;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.eye-icon:hover {
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* === Forgot Password === */
+.forgot-link {
+  display: block;
+  text-align: right;
+  margin-bottom: 10px;
+  color: #00eaff;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.forgot-link:hover {
+  text-decoration: underline;
+}
+/* === Eye Icon (Fixed + Visible + Glow) === */
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 45px; /* Space for eye icon inside input */
+}
+
+.eye-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: #00bfff;
+  opacity: 0.9;
+  cursor: pointer;
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+.eye-icon:hover {
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+  opacity: 1;
+}
+
+/* 🔥 Optional: Glow input border + icon together when focused */
+.password-field input:focus {
+  border-color: #00eaff;
+  box-shadow: 0 0 15px #00eaff;
+}
+
+.password-field input:focus + label,
+.password-field input:focus ~ .eye-icon {
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff;
+}
+/* === Eye Icon (Offline SVG version) === */
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 48px; /* space for icon */
+}
+
+.eye-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  color: #00bfff;
+  cursor: pointer;
+  opacity: 0.9;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.eye-icon:hover {
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Neon glow when input focused */
+.password-field input:focus {
+  border-color: #00eaff;
+  box-shadow: 0 0 15px #00eaff;
+}
+.password-field input:focus ~ .eye-icon {
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff;
+}
+.hidden {
+  display: none;
+}
+
+#otpSection {
+  margin-top: 15px;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Eye Icon (For Login & Reset Password) === */
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 48px; /* room for icon */
+}
+
+.eye-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  color: #00bfff;
+  cursor: pointer;
+  opacity: 0.9;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.eye-icon:hover {
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
